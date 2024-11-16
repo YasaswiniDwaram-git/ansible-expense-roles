@@ -31,11 +31,13 @@
     remote_src: yes
 
 - name: copy expense app file to conf
-  ansible.builtin.copy:
-    src: frontend.service
+  ansible.builtin.template:
+    src: frontend.service.j2
     dest: /etc/nginx/default.d/expense.conf
+  notify:
+  - Restart nginx
 
-- name: restart nginx
-  ansible.builtin.service:
-    name: nginx
-    state: started
+# - name: restart nginx (this is commented , check handlers folder)
+#   ansible.builtin.service:
+#     name: nginx
+#     state: started
