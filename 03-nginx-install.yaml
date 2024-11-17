@@ -1,5 +1,5 @@
 - name: install and run nginx
-  hosts: 172.31.27.94
+  hosts: nginx
   #hosts: all
   become: yes
   serial: 3
